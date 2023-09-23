@@ -1,4 +1,4 @@
-import { lightStyle } from "../../styles"
+import { styles } from "../../../styles"
 import { SimpleNestedCellProp } from "../types"
 import "./style.css"
 
@@ -9,7 +9,7 @@ const NoneCell = (props: SimpleNestedCellProp) => {
     <td 
       className="react-sheet-table-none-cell" 
       field-name={field} 
-      style={{ ...lightStyle.cell }}
+      style={{ ...styles.light.cell }}
     >{ value }</td>
   )
 }

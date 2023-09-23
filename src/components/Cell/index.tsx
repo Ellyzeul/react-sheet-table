@@ -14,6 +14,7 @@ export default Cell
 const cells: {[key: string]: (field: string, value: any) => JSX.Element} = {
   'none': (field: string, value: any) => <NoneCell field={field} value={value} />, 
   'text': (field: string, value: any) => <InputCell field={field} value={value} type="text" />, 
+  'number': (field: string, value: any) => <InputCell field={field} value={value} type="number" />, 
 }
 
 const getCell = (field: string, value: any, column_type: ColumnType) => {
