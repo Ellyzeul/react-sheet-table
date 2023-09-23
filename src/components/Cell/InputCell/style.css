@@ -1,0 +1,13 @@
+.react-sheet-table-cell-input {
+  height: 30px; 
+  padding: 0px;
+  padding-left: 4px;
+  outline: none;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  background-color: inherit;
+  transition: 125ms;
+}
+.react-sheet-table-cell-input:hover, .react-sheet-table-cell-input:focus {
+  background-color: rgb(240, 240, 240);
+}
