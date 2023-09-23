@@ -1,6 +1,6 @@
-import { lightStyle } from "../styles"
 import { HeaderProp } from "./types"
-import { HEADER_DEFAULT_STYLE } from "./constants"
+import "./style.css"
+import { styles } from "../../styles"
 
 const Header = (props: HeaderProp) => {
   const { columns } = props
@@ -9,9 +9,10 @@ const Header = (props: HeaderProp) => {
     .map(({ name, label, column_type }, key) => (
       <th 
         key={key}
+        className="react-sheet-table-header" 
         column-name={name} 
         column-type={column_type} 
-        style={{ ...HEADER_DEFAULT_STYLE, ...lightStyle.header }} 
+        style={{ ...styles.light.header }} 
       >{label}</th>
     ))
 

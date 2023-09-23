@@ -1,14 +1,15 @@
 import { lightStyle } from "../../styles"
 import { SimpleNestedCellProp } from "../types"
-import { CELL_DEFAULT_STYLE } from "../constants"
+import "./style.css"
 
 const NoneCell = (props: SimpleNestedCellProp) => {
   const { field, value } = props
 
   return (
     <td 
-      field-name={field}
-      style={{ ...CELL_DEFAULT_STYLE, ...lightStyle.cell }}
+      className="react-sheet-table-none-cell" 
+      field-name={field} 
+      style={{ ...lightStyle.cell }}
     >{ value }</td>
   )
 }

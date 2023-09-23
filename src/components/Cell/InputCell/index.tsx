@@ -1,20 +1,21 @@
+import { styles } from "../../../styles";
 import { SimpleNestedCellProp } from "../types";
-import { lightStyle } from "../../styles";
-import { CELL_DEFAULT_STYLE } from "./style";
 import "./style.css"
 
 const InputCell = (props: SimpleNestedCellProp & {type: string}) => {
-  const { field, value } = props
+  const { field, value, type } = props
 
   return (
     <td 
+      className="react-sheet-table-input-cell" 
       field-name={field} 
-      style={{ ...CELL_DEFAULT_STYLE, ...lightStyle.cell }}
+      style={{ ...styles.light.cell }}
     >
       <input 
         className="react-sheet-table-cell-input" 
-        defaultValue={value}
-        style={{ ...lightStyle.cell_input }}
+        type={type} 
+        defaultValue={value} 
+        style={{ ...styles.light.cell_input }}
       />
     </td>
   )

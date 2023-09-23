@@ -13,9 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/lib/index.ts'),
-      name: 'MyLib',
+      name: 'react-sheet-table',
       formats: ['es', 'umd'],
-      fileName: (format) => `my-lib.${format}.js`,
+      fileName: (format) => `react-sheet-table.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'styled-components'],
