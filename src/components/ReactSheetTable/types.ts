@@ -13,11 +13,14 @@ type ColumnDatatype = 'readonly'
   | 'text'
   | 'combo'
 
-type Row = RowReadonly | RowText | RowCombo
+type Row = Array<Cell>
 
-type RowReadonly = string
-type RowText = string
-type RowCombo = {
+type Cell= CellReadonly | CellText | CellCombo
+type CellBase= { field_name: string }
+
+type CellReadonly = CellBase & { content: string }
+type CellText = CellBase & { value: string }
+type CellCombo = CellBase & {
   selected: string | number,
   options: Array<string | number>,
 }
