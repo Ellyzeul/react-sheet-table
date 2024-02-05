@@ -5,31 +5,29 @@ export type ReactSheetTableProps = {
   rows: Array<Row>
 } & HTMLAttributes<HTMLTableElement>
 
-type Headers = {
+export type Headers = {
   [field_name: string]: {
     label?: string,
     type?: ColumnDatatype,
   }
 }
 
-type ColumnDatatype = 'readonly'
-  | 'text'
+export type ColumnDatatype = 'readonly'
+  | 'input'
   | 'combo'
 
 type Row = { [field_name: keyof Headers]: Cell }
 
 export type Cell= (
     CellReadonly 
-  | CellText 
+  | CellInput 
   | CellCombo
 )
 
-export type CellReadonly = {
-  content: unknown
-}
-export type CellText = {
+export type CellReadonly = unknown
+export type CellInput = {
   value: unknown,
-  type?: 'string' | 'number',
+  type?: React.HTMLInputTypeAttribute,
 }
 export type CellCombo = {
   selected: Value,

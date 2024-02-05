@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "../ui/table";
 import type { ReactSheetTableProps } from "../../types"
 import Cell from "../Cell";
+import { TableState, TableStateContext } from "@/contexts/TableState";
 
 const ReactSheetTable = React.forwardRef<HTMLTableElement, ReactSheetTableProps>(
   ({ headers, rows, ...props }, ref) => {
+    const [state, set] = useState({ headers } as TableStateContext)
+
     return (
       <Table ref={ref} { ...props }>
         <TableHeader>
@@ -18,13 +21,15 @@ const ReactSheetTable = React.forwardRef<HTMLTableElement, ReactSheetTableProps>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.map((row, key) => (
-            <TableRow key={key}>{
-              Object.keys(row)
-                .map(field_name => ({ ...row[field_name], field_name }))
-                .map(props => <Cell { ...props }/>)
-            }</TableRow>
-          ))}
+          <TableState.Provider value={{ state, set }}>
+            {rows.map((row, key) => (
+              <TableRow key={key}>{
+                Object.keys(row)
+                  .map(field_name => ({ data: row[field_name], field_name }))
+                  .map(props => <Cell { ...props }/>)
+              }</TableRow>
+            ))}
+          </TableState.Provider>
         </TableBody>
       </Table>
     )
